@@ -1,0 +1,170 @@
+.layout,
+.layout * {
+  font-family: "Manrope", system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f8f7;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 256px;
+  height: 100vh;
+  padding: 28px 18px 24px;
+  background: #ffffff;
+  border-right: 1px solid rgba(47, 127, 122, 0.12);
+  box-shadow: 2px 0 16px rgba(15, 46, 44, 0.02);
+  z-index: 20;
+}
+
+.sidebar-brand {
+  margin: 0 8px 26px;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1f7a72;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-brand::after {
+  content: "CAREGIVER PORTAL";
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #6a827f;
+  opacity: 0.85;
+}
+
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 11px 14px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #556c68;
+  text-decoration: none;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  background: #f1f7f5;
+  color: #0f2e2c;
+  transform: translateX(2px);
+}
+
+.nav-link.active {
+  background: #e4f1ef;
+  color: #17635c;
+  font-weight: 700;
+  border-color: rgba(31, 122, 114, 0.16);
+  box-shadow: 0 2px 8px rgba(31, 122, 114, 0.06);
+}
+
+.nav-link.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3.5px;
+  background: #1f7a72;
+  border-radius: 0 4px 4px 0;
+}
+
+.signout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7f7c;
+  text-align: left;
+  background: #f8fbfa;
+  border: 1px solid rgba(47, 127, 122, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 12px;
+}
+
+.signout:hover {
+  background: #fdf2f2;
+  color: #b3261e;
+  border-color: rgba(179, 38, 30, 0.2);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 36px 44px;
+  max-width: 1180px;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    padding: 14px 18px;
+    border-right: none;
+    border-bottom: 1px solid rgba(47, 127, 122, 0.12);
+  }
+
+  .sidebar-brand {
+    margin: 0 0 10px;
+    font-size: 19px;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 13.5px;
+    border-radius: 999px;
+  }
+
+  .nav-link.active::before {
+    display: none;
+  }
+
+  .signout {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 8px 14px;
+    margin-top: 8px;
+  }
+
+  .content {
+    padding: 24px 18px 48px;
+  }
+}
